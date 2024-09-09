@@ -48,3 +48,23 @@ STEP 4: Connection to Panel Login on admin panel: http://your_ip_server Login: a
 STEP 5: Patch Go to Settings > Database Settings > Restore From and select file .73mif32k.gz NOTA: After restore finished, re-login you on panel.
 
 STEP 6: Finished Enjoy :)
+
+# Installation for Ubuntu and Debian (Official Guide)
+
+1) Install the development tools.
+apt-get update
+apt-get install systemd build-essential -y
+apt-get purge nvidia-* -y
+apt-get autoremove -y
+
+2) Disable the Nvidia nouveau open source driver.
+echo "blacklist nouveau" > /etc/modprobe.d/nvidia-installer-disable-nouveau.conf
+echo "options nouveau modeset=0" >> /etc/modprobe.d/nvidia-installer-disable-nouveau.conf
+update-initramfs -u
+reboot
+
+3) Install the Nvidia driver.
+service lightdm stop
+nvidia-uninstall --silent
+wget http://us.download.nvidia.com/XFree86/Linux-x86_64/460.67/NVIDIA-Linux-x86_64-460.67.run
+bash ./NVIDIA-Linux-x86_64-460.67.run --silent --install-libglvnd
