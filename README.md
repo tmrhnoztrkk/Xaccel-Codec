@@ -7,6 +7,8 @@ Cracked versions of Xaccel-Codec
 STEP 1: Upload
 Upload file "xaccel-4.3.19.sh" in /home/
 
+https://drive.google.com/drive/folders/19RXgct_-xKyT6XM0sy0Czs14btzlp4rJ?usp=sharing
+
 STEP 2: Install dependencies
 apt-get update
 apt-get install systemd libdrm2 libxext* libxfixes* libpciaccess* -y
